@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +18,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
+
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+       <body className='min-h-screen flex flex-col'>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >  
+            {/* Toaster */}
+
+            {/* Header */}
+            <header className="border-b sticky">
+              <Header/>
+            </header>
+            
+            
+            <div className=" flex-1 w-full">
+              <main>
+                {children}
+              </main>
+            </div>
+          </ThemeProvider>
+        </body>
     </html>
+    </ClerkProvider>
   );
 }
