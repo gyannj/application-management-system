@@ -71,7 +71,7 @@ We welcome contributions from our team members. To contribute, follow these step
 
 Progress Tracking
 
-We are using GitHub Projects to track the progress of our development. You can view the project board [here](https://github.com/gyannj/application-management/projects/1).
+We are using GitHub Projects to track the progress of our development. You can view the project board [here](https://github.com/users/gyannj/projects/1).
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
