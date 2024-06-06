@@ -1,3 +1,5 @@
+![chrome_xZliQJdTZo](https://github.com/gyannj/application-management-system/assets/125188362/488044eb-c60b-4778-a20f-b9b21261c64d)
+![chrome_zvdMumh10f](https://github.com/gyannj/application-management-system/assets/125188362/110fd92e-d5fe-43cf-a12c-0c3a5fa65419)
 ### Application Management System
 Welcome to the Application Management System project repository! This project is dedicated to tracking the progress and development of our web application, designed to streamline the management of various applications within an organization.
 
