@@ -25,7 +25,7 @@ function Header() {
                     <input
                         type='text'
                         placeholder='Search'
-                        className='bg-transparent outline-none flex-1 rounded-md'
+                        className='bg-transparent outline-none flex-1 rounded-md text-black'
                         />
                 </form>
             </div>
