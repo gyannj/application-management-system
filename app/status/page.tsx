@@ -1,5 +1,5 @@
 import { Users, columns } from "./columns"
-import { DataTable } from "@/components/data-table"
+import { DataTable } from "@/components/mycomponents/data-table"
 
 async function getUsers(): Promise<Users[]> {
 //  const res = await fetch("https://665c100e3e4ac90a04d89336.mockapi.io/api/users/:users")
