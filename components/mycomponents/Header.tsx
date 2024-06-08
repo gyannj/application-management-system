@@ -20,17 +20,19 @@ function Header() {
 
         <SignedIn>
             <div className='flex-1 ml-2'>
-                <form className='flex items-center space-x-1 bg-gray-100 p-2 rounded-md flex-1 mx-2 max-w-96'>
+                {/* <form className='flex items-center space-x-1 bg-gray-100 p-2 rounded-md flex-1 mx-2 max-w-96'>
                     <SearchIcon className='h-4 text-gray-600' />
                     <input
                         type='text'
                         placeholder='Search'
                         className='bg-transparent outline-none flex-1 rounded-md text-black'
                         />
-                </form>
+                </form> */}
             </div>
                         {/* Icons */}
-            <div className='flex items-center space-x-4 px-6'>
+            <div className='md:flex items-center space-x-4 px-6 '>
+                <div className='md:flex items-center space-x-4 px-6 hidden '>
+                
                 <Button asChild variant='secondary'>
                     <Link href='/' className='icon'>
                         <HomeIcon className='h-5'/>
@@ -50,7 +52,10 @@ function Header() {
                         <p>Apply</p>
                     </Link>
                 </Button>
+                </div>
+
                 <UserButton />
+
             </div>
             
         </SignedIn>
