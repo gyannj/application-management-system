@@ -15,7 +15,7 @@ export function DialogForm() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Add Application</Button>
+        <Button variant="secondary" className="border-solid border-[1px] border-sky-300">Add Application</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

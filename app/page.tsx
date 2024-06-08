@@ -8,6 +8,7 @@ import { DialogForm } from '@/components/mycomponents/DialogForm'
 
 
 
+
 function page() {
   return (
     <div>
@@ -23,9 +24,11 @@ function page() {
                   <p className="mb-6 text-lg font-normal text-center text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Hello there! Ready to simplify your application process? Dive into our user-friendly system to track your submissions hassle-free.</p>
 
                   <div className='h-[300px] flex flex-row gap-10 pt-10'>
+                    
                     <DialogForm/>
-                    <Button variant={'secondary'} className='border-solid border-[1px] border-sky-300'>
-                      Track Application
+
+                    <Button variant={'secondary'} className='border-solid border-[1px] border-sky-300' >
+                      <Link href="status"> Track Application</Link>       
                     </Button>
                     
                   </div>
