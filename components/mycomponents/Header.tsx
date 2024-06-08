@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { CirclePlus, Files, HomeIcon, SearchIcon } from 'lucide-react'
 import Link from 'next/link'
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 import { ModeToggle } from './mode-toggle'
 function Header() {
   return (
