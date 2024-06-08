@@ -35,7 +35,7 @@ function page() {
 
                 <div>
                 <Image
-                    src="/appicon.png"
+                    src="/clipboard.png"
                     width={200}
                     height={200}
                     alt=''
