@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import { DialogForm } from '@/components/mycomponents/DialogForm'
+import Header from '@/components/mycomponents/Header'
 
 
 
@@ -13,7 +14,6 @@ function page() {
   return (
     <div>
       <SignedIn>
-        
 
           <div className=' sm:grid grid-cols-[60%_40%] gap-4 content-stretch justify-items-center h-screen items-center'>
                 <div className='flex flex-col items-center justify-center pt-40'>
