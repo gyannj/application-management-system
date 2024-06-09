@@ -43,9 +43,9 @@ export default function RootLayout({
               {/* Toaster */}
 
               {/* Header */}
-              {/* <header className="border-b sticky">
+              <header className="border-b sticky">
                 <Header/>
-              </header> */}
+              </header>
               
               
               <div className=" flex-1 w-full">
