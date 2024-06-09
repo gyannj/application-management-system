@@ -6,13 +6,11 @@ import React from 'react'
 import Image from 'next/image'
 import { DialogForm } from '@/components/mycomponents/DialogForm'
 import Header from '@/components/mycomponents/Header'
-import { currentUser } from '@clerk/nextjs/server'
 
 
 
-async function page() {
-  const user = await currentUser();
-  console.log(user?.email)
+
+function page() {
   return (
     <div>
       <SignedIn>
