@@ -86,3 +86,17 @@
       @apply bg-background text-foreground;
     }
   }
+
+.cl-internal-1w172ot{
+  color: white;
+  border: white;
+}
+
+.cl-internal-ovdovs{
+  color: white;
+}
+
+.cl-dividerLine {
+  background: #68696c;
+  height: 2px;
+}
