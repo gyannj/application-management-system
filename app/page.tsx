@@ -76,7 +76,7 @@ function page() {
     </div> */}
 
 
-    <Button asChild variant='secondary' size="llg" className='m-6 p-4 text-md w-24'>
+    <Button asChild variant='secondary' size="llg" className='m-6 p-4 text-xl w-32 border-solid border-[1px] border-sky-300'>
       <SignInButton />
     </Button>
 
