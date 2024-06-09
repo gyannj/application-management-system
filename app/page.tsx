@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { SignedIn, SignedOut } from '@clerk/nextjs'
+import { SignInButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
@@ -14,6 +14,9 @@ function page() {
   return (
     <div>
       <SignedIn>
+          <header className="border-b sticky">
+                <Header/>
+          </header>
 
           <div className=' sm:grid grid-cols-[60%_40%] gap-4 content-stretch justify-items-center h-screen items-center'>
                 <div className='flex flex-col items-center justify-center pt-40'>
@@ -67,16 +70,15 @@ function page() {
 <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Application Management System</h1>
 <p className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">We implemented this AMS using latest technologies such as NextJS, Clerk Auth, Tailwind.</p>
 
-    <div className="inline-flex items-center justify-center ">
-      <Button asChild variant='outline'>
-        <Link href='/' >
-          <p >Learn More</p>
-          <ChevronRight className="h-4 w-4" />
-        </Link>
-      </Button>
-   
-   
-</div>
+    {/* <div className="inline-flex items-center justify-center ">
+          <SignInButton />
+          <ChevronRight className="h-4 w-4" />   
+    </div> */}
+
+
+    <Button asChild variant='secondary' size="llg" className='m-6 p-4 text-md w-24'>
+      <SignInButton />
+    </Button>
 
         </div>
       </SignedOut>

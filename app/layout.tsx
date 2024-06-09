@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/mycomponents/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/mycomponents/theme-provider";
+import { dark } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,8 @@ export default function RootLayout({
               colorBackground:'#1c1f2e',
               colorInputBackground: "#252a41",
               colorInputText:'#fff'
-            }
+            },
+            baseTheme: [dark],
         }}
       >
 
@@ -41,9 +43,9 @@ export default function RootLayout({
               {/* Toaster */}
 
               {/* Header */}
-              <header className="border-b sticky">
+              {/* <header className="border-b sticky">
                 <Header/>
-              </header>
+              </header> */}
               
               
               <div className=" flex-1 w-full">
