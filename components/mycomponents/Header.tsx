@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Image from 'next/image';
 import { CirclePlus, Files, HomeIcon, SearchIcon } from 'lucide-react';
@@ -5,9 +6,12 @@ import Link from 'next/link';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { Button } from '../ui/button';
 import { ModeToggle } from './mode-toggle';
-function Header() {
+import { dark } from '@clerk/themes';
+import { UserButtonComponent } from './UserButtonComponent';
 
-    return (
+function Header() {
+    
+        return (
         <div className='flex items-center justify-between mx-auto p-2'>
             <div className='flex bg-white p-2 dark:bg-white rounded-md'>
 
@@ -56,8 +60,8 @@ function Header() {
                     </Button>
                     </div>
 
-
-                    <UserButton />
+                    
+                   <UserButtonComponent/>
 
                 </div>
                 
