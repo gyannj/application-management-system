@@ -1,3 +1,7 @@
+"use client"
+import { useUser } from '@clerk/nextjs'
+import { useRef,useState } from 'react'
+
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -25,37 +29,38 @@ export function DialogForm() {
           </DialogDescription>
         </DialogHeader>
 
+        <form>
 
-        <div className="grid gap-4 py-4">
+          <div className="grid gap-4 py-4">
+
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="name" className="text-right">
+                Name
+              </Label>
+              <Input name="name" id="name" className="col-span-3 border outline-none" placeholder=" Enter Your Name..." />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="name" className="text-right">
+                Title
+              </Label>
+              <Input name="apptitle" id="name" className="col-span-3 border outline-none" placeholder=" Enter Your Title..." />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="name" className="text-right">
+                Description
+              </Label>
+              <Input name="appdescription" id="name" className="col-span-3 border outline-none" placeholder=" Enter Your Description..." />
+            </div>
+
+            
 
 
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" className="col-span-3" />
+            <DialogFooter>
+              <Button type="submit">Save changes</Button>
+            </DialogFooter>
+
           </div>
-
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-center text-sm">
-              Application Title
-            </Label>
-            <Input id="username" value="" className="col-span-3" />
-          </div>
-
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Application Description
-            </Label>
-            <Input id="username" value="" className="col-span-3" />
-          </div>
-
-
-
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   )

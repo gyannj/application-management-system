@@ -41,6 +41,7 @@ function Header() {
                         </Link>
                     </Button>
 
+
                     <Button asChild variant='secondary'>
                         <Link href='/status' className='icon'>
                             <Files className='h-5'/>
@@ -54,6 +55,7 @@ function Header() {
                         </Link>
                     </Button>
                     </div>
+
 
                     <UserButton />
 
