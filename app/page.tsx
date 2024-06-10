@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { SignedIn, SignedOut } from '@clerk/nextjs'
+import { SignInButton, SignedIn, SignedOut } from '@clerk/nextjs'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
@@ -74,9 +74,7 @@ function page() {
           <ChevronRight className="h-4 w-4" />
         </Link>
       </Button>
-   
-   
-</div>
+    </div>
 
         </div>
       </SignedOut>
