@@ -54,7 +54,7 @@ function Header() {
                 </Button>
                 </div>
 
-                <UserButton appearance={'icon'}/>
+                <UserButton />
 
             </div>
             
