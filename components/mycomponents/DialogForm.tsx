@@ -55,7 +55,12 @@ export function DialogForm() {
         </DialogHeader>
 
         <form ref={ref} action = {(formData)=> {
-           handlePostAction(formData);
+           const promise = handlePostAction(formData);
+           toast.promise((promise),{
+            loading: 'Submitting Application....',
+            success: 'Application Submitted Successfully',
+            error: 'Failed to Submit Application'
+           })
         }}>
 
           <div className="grid gap-4 py-4">
