@@ -1,7 +1,7 @@
 "use client"
 import { useUser } from '@clerk/nextjs'
 import { useRef,useState } from 'react'
-
+import { toast } from 'sonner';
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -14,8 +14,33 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import createApplicationAction from '@/actions/createApplicationAction'
 
 export function DialogForm() {
+  const ref = useRef<HTMLFormElement>(null);
+  const user = useUser();
+
+  const handlePostAction = async(formData: FormData) => {
+    const formDataCopy = formData;
+    ref?.current?.reset();
+
+    const title = formDataCopy.get('apptitle') as string;
+    const description = formDataCopy.get('appdescription') as string;
+    const name = formDataCopy.get('name') as string;
+    
+    if(!title.trim() || !description.trim() || !name.trim()){
+      throw new Error('Please fill all the fields');
+    }
+
+    try {
+      await createApplicationAction(formDataCopy);
+    } catch (error) {   
+      console.log(`Failed to Create Application ${error}`)
+    }
+
+  }
+
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -29,7 +54,14 @@ export function DialogForm() {
           </DialogDescription>
         </DialogHeader>
 
-        <form>
+        <form ref={ref} action = {(formData)=> {
+           const promise = handlePostAction(formData);
+           toast.promise((promise),{
+            loading: 'Submitting Application....',
+            success: 'Application Submitted Successfully',
+            error: 'Failed to Submit Application'
+           })
+        }}>
 
           <div className="grid gap-4 py-4">
 

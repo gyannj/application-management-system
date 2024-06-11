@@ -12,26 +12,27 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-export type Users = {
-    name: string
-    date: string
-    email: string
-    title: string
-    status: string
-    id: string
-}
+import { IApplicationDocument } from "@/mongodb/models/application"
+// export type  = {
+//     name: string
+//     date: string
+//     email: string
+//     title: string
+//     status: string
+//     id: string
+// }
 
-export const columns: ColumnDef<Users>[] = [
+export const columns: ColumnDef<IApplicationDocument>[] = [
     {
-        accessorKey: "id",
+        accessorKey: "applicationId",
         header: "Application ID",
       },
   {
-    accessorKey: "name",
+    accessorKey: "user.firstName",
     header: "Name",
   },
   {
-    accessorKey: "email",
+    accessorKey: "user.email",
     header: "Email",
   },
   {
@@ -39,24 +40,12 @@ export const columns: ColumnDef<Users>[] = [
     header: "Title",
   },
   {
-    accessorKey: "date",
-    header: ({ column }) => {
-        return (
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Submitted On
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        )
-      },
-    cell: ({ row }) => {
-      const newdate = new Date(row.getValue("date"))
-      const formatted = newdate.toLocaleDateString('en-GB')
- 
-      return <div className="text-center mr-3 font-medium">{formatted}</div>
-    }
+    accessorKey: "description",
+    header: "Description",
+  },
+  {
+    accessorKey: "createdAt",
+    header: "Date",
   },
   {
     accessorKey: "status",
