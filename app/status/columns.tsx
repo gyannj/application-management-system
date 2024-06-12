@@ -84,7 +84,7 @@ export const columns: ColumnDef<IApplicationDocument>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(user.id)}
+              onClick={() => navigator.clipboard.writeText(user?.applicationId)}
             >
               Copy Application ID
             </DropdownMenuItem>
