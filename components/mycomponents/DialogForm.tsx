@@ -50,7 +50,7 @@ export function DialogForm() {
         <DialogHeader>
           <DialogTitle>Application Details</DialogTitle>
           <DialogDescription>
-            Enter details of your application here. Click save when you're done.
+            Enter details of your application here. Click save when you&apos;'re done.
           </DialogDescription>
         </DialogHeader>
 
