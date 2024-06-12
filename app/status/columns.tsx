@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import { MoreHorizontal, ArrowUpDown } from "lucide-react"
- 
-import { Button } from "@/components/ui/button"
+import { ColumnDef } from "@tanstack/react-table";
+import { MoreHorizontal, ArrowUpDown } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,27 +11,28 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-export type Users = {
-    name: string
-    date: string
-    email: string
-    title: string
-    status: string
-    id: string
-}
+} from "@/components/ui/dropdown-menu";
+import { IApplicationDocument } from "@/mongodb/models/application";
+// export type  = {
+//     name: string
+//     date: string
+//     email: string
+//     title: string
+//     status: string
+//     id: string
+// }
 
-export const columns: ColumnDef<Users>[] = [
-    {
-        accessorKey: "id",
-        header: "Application ID",
-      },
+export const columns: ColumnDef<IApplicationDocument>[] = [
   {
-    accessorKey: "name",
+    accessorKey: "applicationId",
+    header: "Application ID",
+  },
+  {
+    accessorKey: "user.firstName",
     header: "Name",
   },
   {
-    accessorKey: "email",
+    accessorKey: "user.email",
     header: "Email",
   },
   {
@@ -39,24 +40,28 @@ export const columns: ColumnDef<Users>[] = [
     header: "Title",
   },
   {
-    accessorKey: "date",
-    header: ({ column }) => {
-        return (
-          <Button
-            variant="ghost"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Submitted On
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        )
-      },
-    cell: ({ row }) => {
-      const newdate = new Date(row.getValue("date"))
-      const formatted = newdate.toLocaleDateString('en-GB')
- 
-      return <div className="text-center mr-3 font-medium">{formatted}</div>
-    }
+    accessorKey: "description",
+    header: "Description",
+  },
+  {
+    accessorKey: "createdAt",
+     header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Submitted On
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  cell: ({ row }) => {
+    const newdate = new Date(row.getValue("createdAt"))
+    const formatted = newdate.toLocaleDateString('en-GB')
+
+    return <div className="text-center mr-3 font-medium">{formatted}</div>
+  }
   },
   {
     accessorKey: "status",
@@ -66,8 +71,8 @@ export const columns: ColumnDef<Users>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const user = row.original
- 
+      const user = row.original;
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -79,7 +84,7 @@ export const columns: ColumnDef<Users>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(user.id)}
+              onClick={() => navigator.clipboard.writeText(user?.applicationId)}
             >
               Copy Application ID
             </DropdownMenuItem>
@@ -88,7 +93,7 @@ export const columns: ColumnDef<Users>[] = [
             <DropdownMenuItem>View Messages</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )
+      );
     },
-},
-]
+  },
+];
