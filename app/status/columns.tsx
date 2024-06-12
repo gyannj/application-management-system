@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import { MoreHorizontal, ArrowUpDown } from "lucide-react"
- 
-import { Button } from "@/components/ui/button"
+import { ColumnDef } from "@tanstack/react-table";
+import { MoreHorizontal, ArrowUpDown } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,8 +11,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { IApplicationDocument } from "@/mongodb/models/application"
+} from "@/components/ui/dropdown-menu";
+import { IApplicationDocument } from "@/mongodb/models/application";
 // export type  = {
 //     name: string
 //     date: string
@@ -23,10 +23,10 @@ import { IApplicationDocument } from "@/mongodb/models/application"
 // }
 
 export const columns: ColumnDef<IApplicationDocument>[] = [
-    {
-        accessorKey: "applicationId",
-        header: "Application ID",
-      },
+  {
+    accessorKey: "applicationId",
+    header: "Application ID",
+  },
   {
     accessorKey: "user.firstName",
     header: "Name",
@@ -45,7 +45,7 @@ export const columns: ColumnDef<IApplicationDocument>[] = [
   },
   {
     accessorKey: "createdAt",
-    header: ({ column }) => {
+     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
@@ -71,8 +71,8 @@ export const columns: ColumnDef<IApplicationDocument>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const user = row.original
- 
+      const user = row.original;
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -93,7 +93,7 @@ export const columns: ColumnDef<IApplicationDocument>[] = [
             <DropdownMenuItem>View Messages</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )
+      );
     },
-},
-]
+  },
+];
