@@ -51,8 +51,12 @@ function page() {
           </p>
 
           <div className="inline-flex items-center justify-center ">
-            <Button asChild variant="outline">
-              <Link href="/learn">
+            <Button
+              asChild
+              variant="outline"
+              className="border-solid border-[1px] border-sky-300 font-md"
+            >
+              <Link href="/learn" className="flex items-center align-middle">
                 <p>Learn More</p>
                 <ChevronRight className="h-4 w-4" />
               </Link>
