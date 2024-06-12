@@ -45,7 +45,23 @@ export const columns: ColumnDef<IApplicationDocument>[] = [
   },
   {
     accessorKey: "createdAt",
-    header: "Date",
+     header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Submitted On
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  cell: ({ row }) => {
+    const newdate = new Date(row.getValue("createdAt"))
+    const formatted = newdate.toLocaleDateString('en-GB')
+
+    return <div className="text-center mr-3 font-medium">{formatted}</div>
+  }
   },
   {
     accessorKey: "status",
