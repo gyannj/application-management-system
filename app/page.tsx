@@ -11,9 +11,9 @@ function page() {
   return (
     <div>
       <SignedIn>
-        <div className=" sm:grid grid-cols-[60%_40%] gap-4 content-stretch justify-items-center h-screen items-center">
+        <div className="sm:grid grid-cols-[60%_40%] gap-4 content-stretch justify-items-center h-screen items-center">
           <div className="flex flex-col items-center justify-center pt-40">
-            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl sm:text-xl dark:text-white ">
+            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl sm:text-xl dark:text-white">
               Welcome Ramesh!
             </h1>
 
@@ -29,7 +29,7 @@ function page() {
                 variant={"secondary"}
                 className="border-solid border-[1px] border-sky-300"
               >
-                <Link href="status"> Track Application</Link>
+                <Link href="status">Track Application</Link>
               </Button>
             </div>
           </div>
@@ -41,7 +41,7 @@ function page() {
       </SignedIn>
 
       <SignedOut>
-        <div className=" flex flex-col w-full h-screen m-auto items-center justify-center">
+        <div className="flex flex-col w-full h-screen m-auto items-center justify-center">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             Application Management System
           </h1>
@@ -50,15 +50,17 @@ function page() {
             Clerk Auth, Tailwind.
           </p>
 
-          <div className="inline-flex items-center justify-center ">
+          <div className="inline-flex items-center justify-center">
             <Button
               asChild
               variant="outline"
               className="border-solid border-[1px] border-sky-300 font-md"
             >
-              <Link href="/learn" className="flex items-center align-middle">
-                <p>Learn More</p>
-                <ChevronRight className="h-4 w-4" />
+              <Link href="/learn" className="flex items-center">
+                <span className="flex items-center">
+                  <p>Learn More</p>
+                  <ChevronRight className=" h-4 w-4" />
+                </span>
               </Link>
             </Button>
           </div>
