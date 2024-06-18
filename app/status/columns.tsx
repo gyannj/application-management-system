@@ -30,6 +30,7 @@ export const columns: ColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "user.firstName",
     header: "Name",
+    cell: ({ row }) => row.original.user?.firstName 
   },
   {
     accessorKey: "user.email",
