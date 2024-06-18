@@ -78,7 +78,7 @@ ApplicationSchema.methods.deleteApplication = async function() {
 
 ApplicationSchema.statics.findApplicationById = async function(applicationId: string) {
     try {
-        const application = await this.findOne({applicationId: applicationId});
+        const application = await this.findOne({'user.userId': applicationId});
         if (!application) {
             throw new Error('Application not found');
         }
@@ -94,7 +94,9 @@ ApplicationSchema.statics.findApplicationById = async function(applicationId: st
 
 ApplicationSchema.statics.findApplicationsByUserId = async function(userId: string) {
     try {
-        const applications = await this.find({'user.userId': userId});
+        const applications = await this.find({'user.userId': userId}).lean();
+        // console.log(applications)
+        
         return applications.map((application: IApplicationDocument) => ({
             ...application,
         }));
@@ -102,7 +104,7 @@ ApplicationSchema.statics.findApplicationsByUserId = async function(userId: stri
         if (error instanceof Error) {
             throw new Error(`Error rejecting application: ${error.message}`);
         } else {
-            throw new Error('Unknown error occurred while rejecting');
+            throw new Error('Unknown error occurred while fetching');
         }
     }
 }
