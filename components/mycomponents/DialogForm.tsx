@@ -26,9 +26,9 @@ export function DialogForm() {
 
     const title = formDataCopy.get("apptitle") as string;
     const description = formDataCopy.get("appdescription") as string;
-    const name = formDataCopy.get("name") as string;
+    // const name = formDataCopy.get("name") as string;
 
-    if (!title.trim() || !description.trim() || !name.trim()) {
+    if (!title.trim() || !description.trim() ) {
       throw new Error("Please fill all the fields");
     }
 
@@ -70,7 +70,7 @@ export function DialogForm() {
         >
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
+              {/* <Label htmlFor="name" className="text-right">
                 Name
               </Label>
               <Input
@@ -78,7 +78,7 @@ export function DialogForm() {
                 id="name"
                 className="col-span-3 border outline-none"
                 placeholder=" Enter Your Name..."
-              />
+              /> */}
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
