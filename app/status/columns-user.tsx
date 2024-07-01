@@ -15,7 +15,6 @@ import {
 import { IApplicationDocument } from "@/mongodb/models/application";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import React from "react";
-import handleStatusChange from "@/actions/handleStatusChange";
 
 // export type  = {
 //     name: string
@@ -31,7 +30,7 @@ export type CustomColumnDef<T> = ColumnDef<T> & {
 };
 
 
-export const columns: CustomColumnDef<IApplicationDocument>[] = [
+export const columnsuser: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "applicationId",
     header: "Application ID",
@@ -76,31 +75,6 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "status",
     header: "Status",
-    
-    cell: ({ row }) => {
-      const [status, setStatus] = React.useState(row.original.status);
-      const handleChangeStatus = async (newStatus: string) => {
-        try {
-          await handleStatusChange(row.original.applicationId, newStatus);
-          setStatus(newStatus);
-        } catch (error) {
-          console.error('Failed to update status:', error);
-          // Handle error as needed
-        }
-      };
-      return (
-        <Select value={status} onValueChange={handleChangeStatus}>
-          <SelectTrigger className="w-full">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="pending">Pending</SelectItem>
-            <SelectItem value="approved">Approved</SelectItem>
-            <SelectItem value="rejected">Rejected</SelectItem>
-          </SelectContent>
-        </Select>
-      ) 
-    },
   },
 
   {
