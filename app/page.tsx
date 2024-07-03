@@ -14,12 +14,12 @@ function page() {
         <div className="sm:grid grid-cols-[60%_40%] gap-4 content-stretch justify-items-center h-screen items-center">
           <div className="flex flex-col items-center justify-center pt-40">
             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl sm:text-xl dark:text-white">
-              Welcome Ramesh!
+              Hello User
             </h1>
 
             <p className="mb-6 text:sm sm:text-lg font-normal text-center text-gray-500 lg:text-xl px-16 xl:px-48 dark:text-gray-400">
-              Hello there! Ready to simplify your application process? Dive into
-              our user-friendly system to track your submissions hassle-free.
+              Ready to simplify your application process? Dive into our
+              user-friendly system to track your submissions effortlessly
             </p>
 
             <div className="h-[150px] sm:h-[300px] flex flex-row gap-10 pt-10">
