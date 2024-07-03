@@ -11,8 +11,10 @@ import { UserButtonComponent } from "./UserButtonComponent";
 function Header() {
   return (
     <div className="flex items-center justify-between mx-auto p-2">
-      <div className="flex bg-white p-2 dark:bg-white rounded-md">
-        <Image src="/next.svg" alt="logo" width={100} height={60} />
+      <div className="flex bg-white p-2 dark:bg-white rounded-md ml-1">
+        <Link href="/">
+          <Image src="/logo.png" alt="logo" width={70} height={40} />
+        </Link>
       </div>
 
       <SignedIn>
