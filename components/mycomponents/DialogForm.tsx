@@ -15,10 +15,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import createApplicationAction from "@/actions/createApplicationAction";
+import { useRouter } from "next/navigation";
 
 export function DialogForm() {
   const ref = useRef<HTMLFormElement>(null);
   const user = useUser();
+  const router = useRouter();
 
   const handlePostAction = async (formData: FormData) => {
     const formDataCopy = formData;
@@ -34,6 +36,7 @@ export function DialogForm() {
 
     try {
       await createApplicationAction(formDataCopy);
+      router.push("/status"); // Redirect after successful submission
     } catch (error) {
       console.log(`Failed to Create Application ${error}`);
     }
@@ -53,7 +56,7 @@ export function DialogForm() {
         <DialogHeader>
           <DialogTitle>Application Details</DialogTitle>
           <DialogDescription>
-            Enter details of your application here. 
+            Enter details of your application here.
           </DialogDescription>
         </DialogHeader>
 
@@ -81,23 +84,23 @@ export function DialogForm() {
               /> */}
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
+              <Label htmlFor="apptitle" className="text-right">
                 Title
               </Label>
               <Input
                 name="apptitle"
-                id="name"
+                id="apptitle"
                 className="col-span-3 border outline-none"
                 placeholder=" Enter Your Title..."
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
+              <Label htmlFor="appdescription" className="text-right">
                 Description
               </Label>
               <Input
                 name="appdescription"
-                id="name"
+                id="appdescription"
                 className="col-span-3 border outline-none"
                 placeholder=" Enter Your Description..."
               />
