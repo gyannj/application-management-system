@@ -81,7 +81,7 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
       const [status, setStatus] = React.useState(row.original.status);
       const handleChangeStatus = async (newStatus: string) => {
         try {
-          await handleStatusChange(row.original.applicationId, newStatus);
+          await handleStatusChange(row.original.applicationId, newStatus, row.original.user.email);
           setStatus(newStatus);
         } catch (error) {
           console.error('Failed to update status:', error);
