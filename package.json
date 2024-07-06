@@ -30,6 +30,7 @@
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.4",
     "sonner": "^1.5.0",
     "svix": "^1.24.0",
     "tailwind-merge": "^2.3.0",
