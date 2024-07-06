@@ -77,7 +77,7 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
     accessorKey: "status",
     header: "Status",
     
-    cell: ({ row }) => {
+    cell: function Cell ({row})  {
       const [status, setStatus] = React.useState(row.original.status);
       const handleChangeStatus = async (newStatus: string) => {
         try {
