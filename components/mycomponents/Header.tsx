@@ -1,14 +1,20 @@
 import React from "react";
 import Image from "next/image";
-import { CirclePlus, Files, HomeIcon, SearchIcon } from "lucide-react";
+import { CirclePlus, Files, HomeIcon, SearchIcon, Shield } from "lucide-react";
 import Link from "next/link";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Button } from "../ui/button";
 import { ModeToggle } from "./mode-toggle";
 import { dark } from "@clerk/themes";
 import { UserButtonComponent } from "./UserButtonComponent";
+import { checkRole } from "@/utils/roles";
 
 function Header() {
+
+
+  const isAdmin = checkRole("admin");
+
+
   return (
     <div className="flex items-center justify-between mx-auto p-2">
       <div className="flex bg-white p-2 dark:bg-white rounded-md ml-1">
@@ -37,6 +43,17 @@ function Header() {
                 <p>Home</p>
               </Link>
             </Button>
+            {isAdmin && 
+            (
+
+            <Button asChild variant="secondary">
+              <Link href="/admin/dashboard" className="icon">
+                <Shield className="h-5" />
+                <p>Dashboard</p>
+              </Link>
+            </Button>
+            )
+            }
 
             <Button asChild variant="secondary">
               <Link href="/status" className="icon">

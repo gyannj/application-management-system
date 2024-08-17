@@ -16,6 +16,9 @@ import { IApplicationDocument } from "@/mongodb/models/application";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import React from "react";
 import handleStatusChange from "@/actions/handleStatusChange";
+import Link from "next/link";
+import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 // export type  = {
 //     name: string
@@ -29,7 +32,6 @@ import handleStatusChange from "@/actions/handleStatusChange";
 export type CustomColumnDef<T> = ColumnDef<T> & {
   isAdmin?: boolean; // Optional isAdmin boolean prop
 };
-
 
 export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
@@ -107,7 +109,11 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
     id: "actions",
     cell: ({ row }) => {
       const user = row.original;
+    //   const router = useRouter();
 
+    // const handleViewApplication = () => {
+    //   router.push(`/app/applications/${user.applicationId}`);
+    // };
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -124,7 +130,9 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
               Copy Application ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View Application</DropdownMenuItem>
+            <DropdownMenuItem >
+            View Application
+          </DropdownMenuItem>
             <DropdownMenuItem>View Messages</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
