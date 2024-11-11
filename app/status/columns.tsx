@@ -1,8 +1,8 @@
 "use client";
 
+
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal, ArrowUpDown } from "lucide-react";
-import { checkRole } from "@/utils/roles";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,22 +14,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { IApplicationDocument } from "@/mongodb/models/application";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import React from "react";
+import React, { useState } from "react";
 import handleStatusChange from "@/actions/handleStatusChange";
 
-// export type  = {
-//     name: string
-//     date: string
-//     email: string
-//     title: string
-//     status: string
-//     id: string
-// }
-
 export type CustomColumnDef<T> = ColumnDef<T> & {
-  isAdmin?: boolean; // Optional isAdmin boolean prop
+  isAdmin?: boolean;
 };
-
 
 export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
@@ -39,7 +29,7 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "user.firstName",
     header: "Name",
-    cell: ({ row }) => row.original.user?.firstName 
+    cell: ({ row }) => row.original.user?.firstName,
   },
   {
     accessorKey: "user.email",
@@ -52,32 +42,59 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "description",
     header: "Description",
+    cell: ({ row }) => { 
+      const [isExpanded, setIsExpanded] = useState(false);
+      const description = row.getValue("description") as string;
+
+      return (
+        <div>
+          <div
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: isExpanded ? 'normal' : 'nowrap',
+              maxWidth: '200px', // Adjust width as needed
+            }}
+          >
+            {description}
+          </div>
+          {description.length > 100 && ( // Adjust length as needed
+            <Button
+              variant="link"
+              className={`mt-2 text-blue-600 hover:underline transition-all duration-300 ${
+                isExpanded ? 'text-blue-800' : ''
+              }`}
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              {isExpanded ? 'Show less' : 'Show more'}
+            </Button>
+          )}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "createdAt",
-     header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Submitted On
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Submitted On
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => {
+      const newdate = new Date(row.getValue("createdAt"));
+      const formatted = newdate.toLocaleDateString('en-GB');
+      return <div className="text-center mr-3 font-medium">{formatted}</div>;
     },
-  cell: ({ row }) => {
-    const newdate = new Date(row.getValue("createdAt"))
-    const formatted = newdate.toLocaleDateString('en-GB')
-
-    return <div className="text-center mr-3 font-medium">{formatted}</div>
-  }
   },
   {
     accessorKey: "status",
     header: "Status",
-    
-    cell: function Cell ({row})  {
+    cell: function Cell({ row }) {
       const [status, setStatus] = React.useState(row.original.status);
       const handleChangeStatus = async (newStatus: string) => {
         try {
@@ -99,15 +116,13 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
             <SelectItem value="rejected">Rejected</SelectItem>
           </SelectContent>
         </Select>
-      ) 
+      );
     },
   },
-
   {
     id: "actions",
     cell: ({ row }) => {
       const user = row.original;
-
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
