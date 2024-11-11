@@ -1,5 +1,6 @@
 "use client";
 
+
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,7 +42,7 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "description",
     header: "Description",
-    cell: ({ row }) => {
+    cell: ({ row }) => { 
       const [isExpanded, setIsExpanded] = useState(false);
       const description = row.getValue("description") as string;
 
