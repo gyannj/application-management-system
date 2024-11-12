@@ -130,7 +130,7 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
               Copy Application ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem >
+            <DropdownMenuItem da>
             View Application
           </DropdownMenuItem>
             <DropdownMenuItem>View Messages</DropdownMenuItem>
