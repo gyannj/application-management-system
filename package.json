@@ -25,7 +25,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.381.0",
     "mongoose": "^8.4.1",
-    "next": "14.2.3",
+    "next": "^14.2.3",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.14",
     "react": "^18",
