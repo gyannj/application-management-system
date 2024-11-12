@@ -138,9 +138,9 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
             >
               Copy Application ID
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View Application</DropdownMenuItem>
-            <DropdownMenuItem>View Messages</DropdownMenuItem>
+            {/* <DropdownMenuSeparator /> */}
+            {/* <DropdownMenuItem>View Application</DropdownMenuItem>
+            <DropdownMenuItem>View Messages</DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
       );
