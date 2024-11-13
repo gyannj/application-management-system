@@ -15,12 +15,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import createApplicationAction from "@/actions/createApplicationAction";
-import { useRouter } from "next/navigation";
 
 export function DialogForm() {
   const ref = useRef<HTMLFormElement>(null);
   const user = useUser();
-  const router = useRouter();
 
   const handlePostAction = async (formData: FormData) => {
     const formDataCopy = formData;
@@ -36,7 +34,6 @@ export function DialogForm() {
 
     try {
       await createApplicationAction(formDataCopy);
-      router.push("/status"); // Redirect after successful submission
     } catch (error) {
       console.log(`Failed to Create Application ${error}`);
     }
@@ -84,23 +81,23 @@ export function DialogForm() {
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="apptitle" className="text-right">
+              <Label htmlFor="name" className="text-right">
                 Title
               </Label>
               <Input
                 name="apptitle"
-                id="apptitle"
+                id="name"
                 className="col-span-3 border outline-none"
                 placeholder=" Enter Your Title..."
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="appdescription" className="text-right">
+              <Label htmlFor="name" className="text-right">
                 Description
               </Label>
               <Input
                 name="appdescription"
-                id="appdescription"
+                id="name"
                 className="col-span-3 border outline-none"
                 placeholder=" Enter Your Description..."
               />

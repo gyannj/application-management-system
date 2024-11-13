@@ -6,6 +6,7 @@ import React from "react";
 import Image from "next/image";
 import { DialogForm } from "@/components/mycomponents/DialogForm";
 import Header from "@/components/mycomponents/Header";
+import ff from "@/components/mycomponents/ff";
 
 function page() {
   return (
@@ -37,6 +38,7 @@ function page() {
           <div className="flex flex-col items-center justify-center mb-10">
             <Image src="/clipboard.png" width={200} height={200} alt="" />
           </div>
+          <ff />
         </div>
       </SignedIn>
 
