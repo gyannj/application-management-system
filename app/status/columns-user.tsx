@@ -1,6 +1,5 @@
 "use client";
 
-
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,13 +14,12 @@ import {
 import { IApplicationDocument } from "@/mongodb/models/application";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import React, { useState } from "react";
-import handleStatusChange from "@/actions/handleStatusChange";
 
 export type CustomColumnDef<T> = ColumnDef<T> & {
   isAdmin?: boolean;
 };
 
-export const columns: CustomColumnDef<IApplicationDocument>[] = [
+export const columnsuser: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "applicationId",
     header: "Application ID",
@@ -42,7 +40,7 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "description",
     header: "Description",
-    cell: ({ row }) => { 
+    cell: ({ row }) => {
       const [isExpanded, setIsExpanded] = useState(false);
       const description = row.getValue("description") as string;
 
@@ -94,30 +92,6 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
   {
     accessorKey: "status",
     header: "Status",
-    cell: function Cell({ row }) {
-      const [status, setStatus] = React.useState(row.original.status);
-      const handleChangeStatus = async (newStatus: string) => {
-        try {
-          await handleStatusChange(row.original.applicationId, newStatus, row.original.user.email);
-          setStatus(newStatus);
-        } catch (error) {
-          console.error('Failed to update status:', error);
-          // Handle error as needed
-        }
-      };
-      return (
-        <Select value={status} onValueChange={handleChangeStatus}>
-          <SelectTrigger className="w-full">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="pending">Pending</SelectItem>
-            <SelectItem value="approved">Approved</SelectItem>
-            <SelectItem value="rejected">Rejected</SelectItem>
-          </SelectContent>
-        </Select>
-      );
-    },
   },
   {
     id: "actions",
@@ -138,7 +112,7 @@ export const columns: CustomColumnDef<IApplicationDocument>[] = [
             >
               Copy Application ID
             </DropdownMenuItem>
-            {/* <DropdownMenuSeparator /> */}
+            <DropdownMenuSeparator />
             {/* <DropdownMenuItem>View Application</DropdownMenuItem>
             <DropdownMenuItem>View Messages</DropdownMenuItem> */}
           </DropdownMenuContent>
