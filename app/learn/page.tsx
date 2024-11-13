@@ -18,7 +18,7 @@ const Page = () => {
             />
           </div>
           <div className="md:basis-1/3 bg-gray-300 border border-gray-300 rounded-lg flex items-center justify-center text-4xl font-bold text-gray-700 mt-6 md:mt-0">
-            01
+          Explore our Application Management System to manage and track application statuses with ease. Sign in to access your account and switch between light and dark modes for a comfortable viewing experience.
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:gap-x-6 mt-6">
@@ -30,7 +30,7 @@ const Page = () => {
             />
           </div>
           <div className="md:basis-1/3 bg-gray-300 border border-gray-300 rounded-lg flex items-center justify-center text-4xl font-bold text-gray-700 mt-6 md:mt-0">
-            02
+          Sign in to the application tracker with ease using Google or your email. Donot have an account? Quickly sign up to start tracking your applications and stay updated on their status.
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:gap-x-6 mt-6">
@@ -42,7 +42,7 @@ const Page = () => {
             />
           </div>
           <div className="md:basis-1/3 bg-gray-300 border border-gray-300 rounded-lg flex items-center justify-center text-4xl font-bold text-gray-700 mt-6 md:mt-0">
-            03
+          Sign in seamlessly with your Google account to access the application tracker. This quick and secure option eliminates the need to remember additional passwords, allowing you to get started immediately.
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:gap-x-6 mt-6">
@@ -54,7 +54,7 @@ const Page = () => {
             />
           </div>
           <div className="md:basis-1/3 bg-gray-300 border border-gray-300 rounded-lg flex items-center justify-center text-4xl font-bold text-gray-700 mt-6 md:mt-0">
-            04
+          Easily submit your application details by filling out the name, title, and description fields. Save your changes to begin tracking your application and stay updated on its status.
           </div>
         </div>
       </div>
